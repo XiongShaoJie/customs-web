@@ -13,13 +13,7 @@ public class MailEntity {
     // 文本内容
     private String content;
     // 附件
-    private File Attachment;
-    // 附件名称
-    private String attachmentName;
-    // 图片
-    private File imgFile;
-    // 图片id
-    private String imgId;
+    private File[] AttachmentArray;
 
     public String getSender() {
 	return sender;
@@ -53,36 +47,11 @@ public class MailEntity {
 	this.content = content;
     }
 
-    public File getAttachment() {
-	return Attachment;
+    public File[] getAttachmentArray() {
+	return AttachmentArray;
     }
 
-    public void setAttachment(File attachment) {
-	Attachment = attachment;
+    public void setAttachmentArray(File[] attachmentArray) {
+	AttachmentArray = attachmentArray;
     }
-
-    public String getAttachmentName() {
-	return attachmentName;
-    }
-
-    public void setAttachmentName(String attachmentName) {
-	this.attachmentName = attachmentName;
-    }
-
-    public File getImgFile() {
-	return imgFile;
-    }
-
-    public void setImgFile(File imgFile) {
-	this.imgFile = imgFile;
-    }
-
-    public String getImgId() {
-	return imgId;
-    }
-
-    public void setImgId(String imgId) {
-	this.imgId = imgId;
-    }
-
 }
