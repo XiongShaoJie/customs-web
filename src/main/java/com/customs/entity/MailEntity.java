@@ -7,7 +7,7 @@ public class MailEntity {
     // 发送人
     private String sender;
     // 收件人
-    private String receiver;
+    private String[] receiver;
     // 主题
     private String theme;
     // 文本内容
@@ -29,11 +29,11 @@ public class MailEntity {
 	this.sender = sender;
     }
 
-    public String getReceiver() {
+    public String[] getReceiver() {
 	return receiver;
     }
 
-    public void setReceiver(String receiver) {
+    public void setReceiver(String[] receiver) {
 	this.receiver = receiver;
     }
 

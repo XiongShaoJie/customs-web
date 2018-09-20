@@ -36,7 +36,7 @@ public class PersonController {
 	MailEntity mail = new MailEntity();
 	mail.setSender(env.getProperty("spring.mail.username"));
 	mail.setContent("这是一封邮件");
-	mail.setReceiver("2318965095@qq.com");
+	mail.setReceiver(new String[] { "2318965095@qq.com" });
 	mail.setTheme("祝福");
 	try {
 	    mailService.sendPlainText(mail);
