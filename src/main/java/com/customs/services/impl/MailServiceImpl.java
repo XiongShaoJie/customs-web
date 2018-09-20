@@ -39,7 +39,7 @@ public class MailServiceImpl implements IMailService {
 		FileSystemResource attachmentResource = new FileSystemResource(attachment);
 		helper.addAttachment(mail.getAttachmentName(), attachmentResource);
 	    }
-	    // 图片
+	    // 图片(正文有图片)
 	    if (imgFile != null) {
 		FileSystemResource imgResource = new FileSystemResource(imgFile);
 		helper.addInline(mail.getImgId(), imgResource);
