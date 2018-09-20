@@ -6,8 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@ConfigurationProperties(prefix = "elasticsearch")
+//@Configuration
+//@ConfigurationProperties(prefix = "elasticsearch")
 public class ElasticsearchFirst extends ElasticsearchConfiguration {
     private String url;
     private int port;

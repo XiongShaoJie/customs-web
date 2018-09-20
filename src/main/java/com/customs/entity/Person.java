@@ -2,17 +2,40 @@ package com.customs.entity;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
 
+    @NotEmpty(message = "姓名不可为空")
     private String name;
 
+    @Size(min = 6, max = 20, message = "密码长度为6~20")
     private String password;
 
+    @NotNull(message = "年龄不可为空")
+    @Min(value = 0, message = "年龄最小为0")
+    @Max(value = 150, message = "年龄最大为150")
     private Integer age;
 
     private String address;
+
+    @Email(message = "邮箱有误")
+    private String email;
+
+    public String getEmail() {
+	return email;
+    }
+
+    public void setEmail(String email) {
+	this.email = email;
+    }
 
     public Long getId() {
 	return id;

@@ -15,29 +15,31 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  */
 @Configuration
 public class MyWebMvcConfiguration extends WebMvcConfigurationSupport {
-	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = { "classpath:/static/", "classpath:/public/",
-			"classpath:/resources/", "classpath:/META-INF/resources" };
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = { "classpath:/static/", "classpath:/public/",
+	    "classpath:/resources/", "classpath:/META-INF/resources" };
 
-	@Override
-	protected void addInterceptors(InterceptorRegistry registry) {
-	}
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+    }
 
-	@Override
-	protected void addViewControllers(ViewControllerRegistry registry) {
-	}
+    @Override
+    protected void addViewControllers(ViewControllerRegistry registry) {
+    }
 
-	// 添加资源
-	@Override
-	protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/*").addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
-	}
+    // 添加资源
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+	registry.addResourceHandler("/*").addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
+	registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+	registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
 
-	@Override
-	protected void addCorsMappings(CorsRegistry registry) {
-	}
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+    }
 
-	@Override
-	protected void addFormatters(FormatterRegistry registry) {
-	}
+    @Override
+    protected void addFormatters(FormatterRegistry registry) {
+    }
 
 }

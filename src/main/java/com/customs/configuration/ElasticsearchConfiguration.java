@@ -10,7 +10,7 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class ElasticsearchConfiguration {
 
     public TransportClient client(String host, int port, String clusterName) throws UnknownHostException {

@@ -2,25 +2,26 @@ package com.customs.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.request.async.DeferredResult;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
 @Configuration
+@EnableSwagger2
 public class Swagger2Configuration {
-	@Bean
-	public Docket ProductApi() {
-		return new Docket(DocumentationType.SWAGGER_2).genericModelSubstitutes(DeferredResult.class)
-				.useDefaultResponseMessages(false).forCodeGeneration(false).pathMapping("/").select().build()
-				.apiInfo(productApiInfo());
-	}
+    @Bean
+    public Docket createRestApi() {
+	return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
+		.apis(RequestHandlerSelectors.basePackage("com.customs.api"))// 根据自己项目修改
+		.paths(PathSelectors.any()).build();
+    }
 
-	private ApiInfo productApiInfo() {
-		ApiInfo apiInfo = new ApiInfo("XXX系统数据接口文档", "文档描述。。。", "1.0.0", "API TERMS URL", "联系人邮箱", "license",
-				"license url");
-		return apiInfo;
-	}
+    private ApiInfo apiInfo() {
+	// 访问地址 /swagger-ui.html
+	return new ApiInfoBuilder().title("RESTful APIs ").description("Restful API文档").version("1.0").build();
+    }
 }

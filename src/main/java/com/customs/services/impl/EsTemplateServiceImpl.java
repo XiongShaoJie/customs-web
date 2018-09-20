@@ -10,7 +10,5 @@ import com.customs.services.IEsTemplateService;
 
 @Service
 public class EsTemplateServiceImpl implements IEsTemplateService {
-    @Autowired
-    private TransportClient client;
 
 }
