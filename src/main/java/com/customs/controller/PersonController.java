@@ -3,11 +3,15 @@ package com.customs.controller;
 import java.io.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 import com.customs.entity.MailEntity;
 import com.customs.entity.MailPicEntity;
 import com.customs.entity.Person;
@@ -24,12 +28,21 @@ public class PersonController {
     private IMailService mailService;
     @Autowired
     private Environment env;
+    @Autowired
+    private TemplateEngine templateEngine;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     @GetMapping(value = "/get/{id}")
     @ResponseBody
     public Person getById(@PathVariable Long id) {
 	Person person = personService.getById(id);
 	return person;
+    }
+
+    @RequestMapping("/index")
+    public String toIndex() {
+	return "/index";
     }
 
     @RequestMapping("/sendMail")
