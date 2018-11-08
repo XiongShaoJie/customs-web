@@ -1,8 +1,10 @@
 package com.customs.job;
 
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.apache.commons.lang.StringUtils;
+
+import com.customs.util.DateUtils;
 
 public class TestJob {
-
+	public static void main(String[] args) {
+	}
 }

@@ -8,7 +8,7 @@ import com.customs.entity.MailPicEntity;
 public interface IMailService {
 
     /** 发送邮件：文本，附件，HTML */
-    public boolean sendMail(MailEntity mail) throws Exception;
+     boolean sendMail(MailEntity mail) throws Exception;
 
     /** 发送图片邮件 */
     public boolean sendPic(MailPicEntity picEntity) throws Exception;
